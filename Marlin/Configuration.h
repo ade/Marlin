@@ -677,7 +677,7 @@
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER 21  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER -23  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -1.3  //Distance for BuildTak is 1.3  // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -686,7 +686,7 @@
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
 
 // Speed for the "accurate" probe of each point
-#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
+#define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 4)
 
 // Use double touch for probing
 #define PROBE_DOUBLE_TOUCH
@@ -768,11 +768,11 @@
 // @section machine
 
 // Travel limits after homing (units are in mm)
-#define X_MIN_POS 0
-#define Y_MIN_POS -24
+#define X_MIN_POS -10
+#define Y_MIN_POS -25
 #define Z_MIN_POS 0
-#define X_MAX_POS 200
-#define Y_MAX_POS 200
+#define X_MAX_POS 201
+#define Y_MAX_POS 201
 #define Z_MAX_POS 200
 
 // If enabled, axes won't move below MIN_POS in response to movement commands.
@@ -865,10 +865,10 @@
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  #define LEFT_PROBE_BED_POSITION 25 //20 measured
-  #define RIGHT_PROBE_BED_POSITION 180 //200 measured
-  #define FRONT_PROBE_BED_POSITION 35 //30 measured
-  #define BACK_PROBE_BED_POSITION 165 // 200 - 30 measured
+  #define LEFT_PROBE_BED_POSITION 15 //20 measured
+  #define RIGHT_PROBE_BED_POSITION 185 //200 measured
+  #define FRONT_PROBE_BED_POSITION 15 //30 measured
+  #define BACK_PROBE_BED_POSITION 178 // 200 - 30 measured
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
@@ -985,7 +985,7 @@
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (2*60) //Use 8 when homing verified
+#define HOMING_FEEDRATE_Z  (8*60) //Use 8 when homing verified
 
 //=============================================================================
 //============================= Additional Features ===========================
@@ -1264,7 +1264,7 @@
 //
 //  Set this option if CLOCKWISE causes values to DECREASE
 //
-//#define REVERSE_ENCODER_DIRECTION
+#define REVERSE_ENCODER_DIRECTION
 
 //
 // This option reverses the encoder direction for navigating LCD menus.
