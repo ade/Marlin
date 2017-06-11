@@ -336,9 +336,14 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Ultimaker
-  #define  DEFAULT_Kp 22.2
-  #define  DEFAULT_Ki 1.08
-  #define  DEFAULT_Kd 114
+  /*
+  Autotune by ade 201706011
+  Classic PID
+  Recv:  Kp: 19.95 Ki: 1.35 Kd: 73.55
+  */
+  #define  DEFAULT_Kp 19.95
+  #define  DEFAULT_Ki 1.35
+  #define  DEFAULT_Kd 73.55
 
   // MakerGear
   //#define  DEFAULT_Kp 7.0
@@ -547,7 +552,7 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
+#define DEFAULT_RETRACT_ACCELERATION  1500    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
@@ -840,8 +845,8 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR
-//#define AUTO_BED_LEVELING_UBL
+//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
 /**
@@ -985,7 +990,7 @@
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (8*60) //Use 8 when homing verified
+#define HOMING_FEEDRATE_Z  (8*60)
 
 //=============================================================================
 //============================= Additional Features ===========================
