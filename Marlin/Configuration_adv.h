@@ -666,10 +666,10 @@
   #define MESH_MIN_Y (Y_MIN_POS + MESH_INSET)
   #define MESH_MAX_Y (Y_MAX_POS - (MESH_INSET))
 #elif ENABLED(AUTO_BED_LEVELING_UBL)
-  #define UBL_MESH_MIN_X (X_MIN_POS + UBL_MESH_INSET)
-  #define UBL_MESH_MAX_X (X_MAX_POS - (UBL_MESH_INSET))
-  #define UBL_MESH_MIN_Y (Y_MIN_POS + UBL_MESH_INSET)
-  #define UBL_MESH_MAX_Y (Y_MAX_POS - (UBL_MESH_INSET))
+  #define UBL_MESH_MIN_X 0
+  #define UBL_MESH_MAX_X 200
+  #define UBL_MESH_MIN_Y 0
+  #define UBL_MESH_MAX_Y 200
 
   // If this is defined, the currently active mesh will be saved in the
   // current slot on M500.
@@ -1248,18 +1248,18 @@
 /**
  * User-defined menu items that execute custom GCode
  */
-//#define CUSTOM_USER_MENUS
+#define CUSTOM_USER_MENUS
 #if ENABLED(CUSTOM_USER_MENUS)
   #define USER_SCRIPT_DONE "M117 User Script Done"
 
   #define USER_DESC_1 "Home & UBL Info"
   #define USER_GCODE_1 "G28\nG29 W"
 
-  #define USER_DESC_2 "Preheat for PLA"
-  #define USER_GCODE_2 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
+  #define USER_DESC_2 "Bed warmup PLA (60c)"
+  #define USER_GCODE_2 "M140 S60"
 
-  #define USER_DESC_3 "Preheat for ABS"
-  #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
+  #define USER_DESC_3 "Bed warmup ABS (95c)"
+  #define USER_GCODE_3 "M140 S95"
 
   #define USER_DESC_4 "Heat Bed/Home/Level"
   #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
